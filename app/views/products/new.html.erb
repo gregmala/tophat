@@ -1,1 +1,17 @@
-
+<%= form_with model: @products do |f| %>
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  <%= f.label :apparel_type %>
+  <%= f.text_field :apparel_type %>
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+  <%= f.label :color %>
+  <%= f.text_field :color%>
+  <%= f.label :description %>
+  <%= f.text_field :description%>
+  <%= f.label :price_per_day %>
+  <%= f.text_field :price_per_cycle%>
+  <%= f.submit %>
+<% end %>

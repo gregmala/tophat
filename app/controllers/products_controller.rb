@@ -32,6 +32,14 @@ class ProductsController < ApplicationController
     @product.update(product_params)
   end
 
+  def bookings
+    @product = Product.find(params[:id])
+    @bookings = @product.bookings
+    if current_user != @product.owner
+      redirect_to root_path, alert: "You do not have permission to view this page."
+    end
+  end
+
   private
 
   def product_params

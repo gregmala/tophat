@@ -1,0 +1,36 @@
+<!-- products/bookings.html.erb
+
+-->
+
+
+<% if @bookings.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.user.email %></td>
+          <td><%= booking.date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= booking.status %></td>
+          <td>
+            <% if booking.status == "Pending" %>
+              <%= button_to "Accept",  accept_booking_path(booking), method: :patch %>
+              <%= button_to "Decline", decline_booking_path(booking), method: :patch %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No bookings yet.</p>
+<% end %>

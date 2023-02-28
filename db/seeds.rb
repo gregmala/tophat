@@ -5,9 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.destroy_all
-Product.destroy_all
-
 
 Product.create(brand: "Gucci", size: "L", apparel_type: "T-shirt", category: "Men", price_per_cycle: "10€", color: "White", description: "White T-shirt", owner_id: User.all[0].id )
 Product.create(brand: "Green Coast", size: "M", apparel_type: "Skirt", category: "Woman", price_per_cycle: "3€", color: "Red", description: "Red Mini Skirt", owner_id: User.all[1].id)
