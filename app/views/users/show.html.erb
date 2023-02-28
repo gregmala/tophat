@@ -1,0 +1,15 @@
+<h1> Hi <%= @user.first_name  %> <%= @user.last_name%></h1>
+<h2>Your listed products</h2>
+
+<% @user.products.each do |product| %>
+<h2><%= product.brand %></h2>
+<p><%= product.description %></p>
+<% end %>
+
+<h1>Your Bookings</h1>
+<% @user.bookings.each do |booking| %>
+<h3><%= booking.status %></h3>
+<p><%= booking.product.brand %></p>
+<p><%= booking.product.price_per_cycle %></p>
+
+<% end %>
