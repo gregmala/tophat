@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @product = Product.find(params[:product_id])
+    @diff = calculate_age(@booking.end_date, @booking.date)
   end
 
   def create
@@ -33,9 +34,10 @@ class BookingsController < ApplicationController
   end
 
   private
-
+  
   def set_booking
     @booking = Booking.find(params[:id])
+
   end
 
   def booking_params

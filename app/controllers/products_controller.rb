@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :update,:edit ]
   def index
     @products = Product.all
     @unique_categories = Product.distinct.pluck(:category)
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -24,23 +24,34 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+
   end
 
   def update
-    @product.find(params[:id])
     @product.update(product_params)
   end
 
-  def bookings
-    @product = Product.find(params[:id])
-    @bookings = @product.bookings
-    if current_user != @product.owner
-      redirect_to root_path, alert: "You do not have permission to view this page."
-    end
+
+  def filter
+    @unfiltered = Product.where(category: params[:category])
+    @unique_colors = Product.distinct.pluck(:color)
+    @unique_brands = Product.distinct.pluck(:brand)
+    @unique_sizes = Product.distinct.pluck(:size)
+    filters = params[:array].split("&")
+    size_filter = filters.last.split("=")
+    brand_filter = filters.first.split("=")
+    brand_filter_usable = brand_filter.last.gsub("+"," ")
+    @products = @unfiltered.select { |pro| pro.size == size_filter.last }
+    @products = @unfiltered.select { |pro| pro.brand == brand_filter_usable}
+
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 
   def product_params
     params.require(:product).permit(:brand, :color, :size, :apparel_type, :category, :price_per_cycle, :description)

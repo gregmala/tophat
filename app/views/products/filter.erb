@@ -1,0 +1,33 @@
+
+<div>
+<div>
+<h3>Color</h3>
+<% @unique_colors.each do |color| %>
+<p><%= color %></p>
+<% end %>
+</div>
+<div>
+<h3>Brand</h3>
+<% @unique_brands.each do |brand| %>
+<p><%= brand %></p>
+<% end %>
+</div>
+<div>
+<h3>Size</h3>
+<% @unique_sizes.each do |size| %>
+<p><%= size %></p>
+<% end %>
+</div>
+
+</div>
+
+
+
+
+
+<div>
+<% @products.each do |product| %>
+  <h3><%= product.brand %></h3>
+  <h3><%= product.size %></h3>
+<% end %>
+</div>
