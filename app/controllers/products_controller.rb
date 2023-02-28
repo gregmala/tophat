@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     @product.update(product_params)
   end
 
+
   def filter
     @unfiltered = Product.where(category: params[:category])
     @unique_colors = Product.distinct.pluck(:color)
