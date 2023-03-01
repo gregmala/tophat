@@ -1,36 +1,66 @@
-<!-- products/bookings.html.erb
+<div class="container">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col" style="padding: 0px;">
+        <div class="card">
+          User
+        </div>
+      </div>
+      <div class="col" style="padding: 0px;">
+        <div class="card">
+          Start date
+        </div>
+      </div>
+      <div class="col" style="padding: 0px;">
+        <div class="card">
+          End date
+        </div>
+      </div>
+      <div class="col" style="padding: 0px;">
+        <div class="card">
+          Status
+        </div>
+      </div>
+            <div class="col" style="padding: 0px;">
+        <div class="card">
+          Accept Or Decline
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <% @bookings.each do |booking| %>
+      <div class="row align-items-start">
+        <% if booking.product.owner_id == current_user.id %>
+          <div class="col" style="padding: 0px;">
+            <%= booking.user.first_name %> <%= booking.user.last_name %>
+          </div>
+          <div class="col" style="padding: 0px;">
+            <%= booking.date %>
+          </div>
+          <div class="col" style="padding: 0px;">
+            <%= booking.end_date %>
+          </div>
+          <div class="col" style="padding: 0px;">
+            <%= booking.status %>
+          </div>
 
--->
-
-
-<% if @bookings.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Status</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @bookings.each do |booking| %>
-        <tr>
-          <td><%= booking.user.email %></td>
-          <td><%= booking.date %></td>
-          <td><%= booking.end_date %></td>
-          <td><%= booking.status %></td>
-          <td>
             <% if booking.status == "Pending" %>
-              <%= button_to "Accept",  accept_booking_path(booking), method: :patch %>
-              <%= button_to "Decline", decline_booking_path(booking), method: :patch %>
+            <div class="col" style="padding: 0px;">
+              <div class="row">
+                <div class="col">
+                  <%= button_to "Accept", accept_booking_path(booking), method: :patch %>
+                </div>
+                <div class="col">
+                  <%= button_to "Decline", decline_booking_path(booking), method: :patch %>
+                </div>
+              </div>
+            </div>
+            <% else %>
+              <div class="col" style="padding: 0px;"></div>
             <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>No bookings yet.</p>
-<% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

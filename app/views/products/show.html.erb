@@ -1,4 +1,11 @@
 <h1><%= @product.brand %></h1>
 <h3><%= @product.description %> <%= @product.price_per_cycle %></h3>
 <p><%= link_to "View booking details", new_product_booking_path(@product) %></p>
+
+<% if current_user.id == @product.owner_id%>
+  <p><%= link_to "Delete",
+  product_path(@product),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></p>
+<% end %>
 </ul>
