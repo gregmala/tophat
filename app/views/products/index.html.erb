@@ -111,3 +111,6 @@
 <% @products.each do |product| %>
 <%= link_to product.brand, product_path(product) %>
 <% end %>
+
+<p><%= link_to "New", new_product_path %></p>
+
