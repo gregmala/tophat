@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index,:destroy] do
     collection do
-      get "/category/:category/filters", to: 'products#filter', as: 'filter'
+      get "/category/:category(/:size)(/:color)(/:brand)", to: 'products#filter', as: 'filter'
     end
   end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

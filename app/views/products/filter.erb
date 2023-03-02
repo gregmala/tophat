@@ -1,8 +1,65 @@
 
-<% @products.each do |product| %>
-  <h1><%= product.category %></h1>
-  <h3><%= link_to product.brand, product_path(product) %></h3>
-  <p><%= product.description %></h3>
-  <p></p>
-<% end %>
+<div style= "display:flex">
+    <div class="checkbox-container">
+      <%= form_tag filter_products_path(category: @category), method: :get do %>
+        <div>
+          <h4 class="filter-category filter-font" style="margin-bottom:7px">Size:</h4>
+          <% Product.distinct.pluck(:size).each do |size| %>
+            <div>
+              <%= check_box_tag 'size[]', size %>
+              <%= label_tag size %>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <h4 class="filter-category filter-font" style="margin-bottom:7px ">Color:</h4>
+          <% Product.distinct.pluck(:color).each do |color| %>
+            <div>
+              <%= check_box_tag 'color[]', color %>
+              <%= label_tag color %>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <h4 class="filter-category filter-font style="margin-bottom:7px ">Brand:</h4>
+          <% Product.distinct.pluck(:brand).each do |brand| %>
+            <div>
+              <%= check_box_tag 'brand[]', brand %>
+              <%= label_tag brand %>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <h4 class="filter-category filter-font style="margin-bottom:7px ">Apparel type:</h4>
+          <% Product.distinct.pluck(:apparel_type).each do |apparel_type| %>
+            <div>
+              <%= check_box_tag 'apparel_type[]', apparel_type %>
+              <%= label_tag apparel_type %>
+            </div>
+          <% end %>
+        </div>
+
+        <%= submit_tag 'Filter' %>
+      <% end %>
+    </div>
+  <div class="card-container">
+
+    <% @products.each do |product| %>
+      <div class="card-whole">
+        <div class="product-image">
+        </div>
+          <div class="product-info">
+              <p class="description"><%= product.description %></p>
+              <p class="brand"><%= product.brand %></p>
+              <p class="price"><%= product.price_per_cycle %>$<p>
+          </div>
+
+      </div>
+
+    <% end %>
+  </div>
+
 </div>
