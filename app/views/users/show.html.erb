@@ -1,15 +1,96 @@
-<h1> Hi <%= @user.first_name  %> <%= @user.last_name%></h1>
-<h2>Your listed products</h2>
+<style>
 
-<% @user.products.each do |product| %>
-<h2><%= product.brand %></h2>
-<p><%= product.description %></p>
-<% end %>
+  .box {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
 
-<h1>Your Bookings</h1>
-<% @user.bookings.each do |booking| %>
-<h3><%= booking.status %></h3>
-<p><%= booking.product.brand %></p>
-<p><%= booking.product.price_per_cycle %></p>
+  .product-box, .booking-box {
+    background-color: #F8F9FA;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  }
 
-<% end %>
+  .card {
+    display: flex;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+  }
+
+  .card img {
+    height: 150px;
+    margin-right: 20px;
+    width: 100%;
+  }
+
+  .card-infos h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .card-infos p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+</style>
+
+
+<div class="container">
+  <div class="text-center">
+    <h1> Hi <%= @user.first_name %> <%= @user.last_name.upcase %></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card mx-auto product-box d-flex flex-column align-items-center">
+        <h2>Your listed products</h2>
+        <% @user.products.each do |product| %>
+          <div class="card" style="display: flex; height: 194px;">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="<%= product.photo.url %>" />
+              </div>
+              <div class="col-md-6">
+                <div class="card-infos">
+                  <h2><%= product.brand %></h2>
+                  <p><%= product.description %></p>
+                  <p>Price per cycle: <%= product.price_per_cycle %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+   <div class="col-md-6">
+      <div class="box mx-auto booking-box d-flex flex-column align-items-center">
+        <h2>Your Bookings</h2>
+        <% @user.bookings.each do |booking| %>
+          <div class="card" style="height: 194px;">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="card-infos">
+                  <h3><%= booking.status %></h3>
+                  <h2><%= booking.product.brand %></h2>
+                  <p><%= booking.product.description %></p>
+                  <p>Price per cycle: <%= booking.product.price_per_cycle %></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <img src="<%= booking.product.photo.url %>">
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
