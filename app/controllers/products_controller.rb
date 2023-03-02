@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def index
     @products = policy_scope(Product)
     @unique_categories = Product.distinct.pluck(:category)
+
   end
 
   def show
@@ -40,9 +41,19 @@ class ProductsController < ApplicationController
 
 
   def filter
-    @products = Product.where(category: params[:category])
+    @category = params[:category]
+    @size = params[:size] || []
+    @color = params[:color] || []
+    @brand = params[:brand] || []
+
+    @products = Product.where(category: @category)
+    @products = @products.where(size: @size) unless @size.empty?
+    @products = @products.where(color: @color) unless @color.empty?
+    @products = @products.where(brand: @brand) unless @brand.empty?
     authorize @products
+
   end
+
 
   private
 

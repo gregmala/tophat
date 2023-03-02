@@ -72,7 +72,7 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
+  #oifjidfoidjoi
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
@@ -83,3 +83,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+    <%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %>
