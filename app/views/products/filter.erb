@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div style= "display:flex">
     <div class="checkbox-container">
       <%= form_tag filter_products_path(category: @category), method: :get do %>
@@ -60,4 +61,19 @@
 
     <% end %>
   </div>
+=======
+<div class="container">
+  <h3>Color</h3>
+
+
+  <ul>
+    <% @products.each do |product| %>
+      <li><strong>Brand:</strong> <%= product.brand %></li>
+      <li>Size: <%= product.size %></li>
+      <li>Color: <%= product.color %></li>
+      <li>Apperal type: <%= product.apparel_type %></li>
+      <li>Categort: <%= product.category %></li>
+    <% end %>
+  </ul>
+>>>>>>> Stashed changes
 </div>

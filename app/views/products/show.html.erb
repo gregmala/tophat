@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="product-details">
   <h2 class="brand"><%= @product.brand %></h2>
   <h2><div class="product-color-circle" style="background-color: <%= @product.color %>"></div> <%= @product.apparel_type %></h2>
@@ -50,3 +51,10 @@
   font-weight: bold;
 }
 </style>
+=======
+<h1><%= @product.brand %></h1>
+<h3><%= @product.description %> <%= @product.price_per_cycle %></h3>
+<p><%= link_to "View booking details", new_product_booking_path(@product) %></p>
+</ul>
+
+>>>>>>> Stashed changes
