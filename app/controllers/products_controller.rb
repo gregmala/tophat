@@ -40,18 +40,8 @@ class ProductsController < ApplicationController
 
 
   def filter
-    @unfiltered = Product.where(category: params[:category])
-    authorize @unfiltered
-    @unique_colors = Product.distinct.pluck(:color)
-    @unique_brands = Product.distinct.pluck(:brand)
-    @unique_sizes = Product.distinct.pluck(:size)
-    filters = params[:array].split("&")
-    size_filter = filters.last.split("=")
-    brand_filter = filters.first.split("=")
-    brand_filter_usable = brand_filter.last.gsub("+"," ")
-    @products = @unfiltered.select { |pro| pro.size == size_filter.last }
-    @products = @unfiltered.select { |pro| pro.brand == brand_filter_usable}
-
+    @products = Product.where(category: params[:category])
+    authorize @products
   end
 
   private
