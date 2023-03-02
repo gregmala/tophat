@@ -1,4 +1,3 @@
-
 <div style= "display:flex">
     <div class="checkbox-container">
       <%= form_tag filter_products_path(category: @category), method: :get do %>
@@ -23,7 +22,7 @@
         </div>
 
         <div>
-          <h4 class="filter-category filter-font style="margin-bottom:7px ">Brand:</h4>
+          <h4 class="filter-category filter-font" style="margin-bottom:7px ">Brand:</h4>
           <% Product.distinct.pluck(:brand).each do |brand| %>
             <div>
               <%= check_box_tag 'brand[]', brand %>
@@ -33,7 +32,7 @@
         </div>
 
         <div>
-          <h4 class="filter-category filter-font style="margin-bottom:7px ">Apparel type:</h4>
+          <h4 class="filter-category filter-font" style="margin-bottom:7px">Apparel type:</h4>
           <% Product.distinct.pluck(:apparel_type).each do |apparel_type| %>
             <div>
               <%= check_box_tag 'apparel_type[]', apparel_type %>
@@ -61,5 +60,4 @@
 
     <% end %>
   </div>
-
 </div>

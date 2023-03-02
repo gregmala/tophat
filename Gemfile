@@ -83,6 +83,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-    <%= stylesheet_link_tag 'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css' %>
-    <%= javascript_include_tag 'application', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js' %>

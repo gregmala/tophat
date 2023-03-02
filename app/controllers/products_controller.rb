@@ -51,7 +51,6 @@ class ProductsController < ApplicationController
     @products = @products.where(color: @color) unless @color.empty?
     @products = @products.where(brand: @brand) unless @brand.empty?
     authorize @products
-
   end
 
 
