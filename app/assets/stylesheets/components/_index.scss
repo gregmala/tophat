@@ -67,6 +67,7 @@ h2 {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 150px;
 }
 
 .card-product > img {
@@ -99,13 +100,17 @@ h2 {
 }
 
 
-.container-cards {
-  display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-}
+// .carousel-cards {
+//   display: flex;
+//   justify-content: space-around;
+//   margin: 0 auto;
+// }
 
 .price{
   display: flex;
   justify-content: flex-end;
+}
+
+.card-body {
+  margin: auto;
 }
