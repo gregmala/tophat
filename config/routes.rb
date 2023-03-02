@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index,:destroy] do
     collection do
-      get "/category/:category/filters/:array", to: 'products#filter', as: 'filter'
+      get "/category/:category/filters", to: 'products#filter', as: 'filter'
     end
   end
 
