@@ -41,7 +41,6 @@ class ProductsController < ApplicationController
 
 
   def filter
-<<<<<<< Updated upstream
     @category = params[:category]
     @size = params[:size] || []
     @color = params[:color] || []
@@ -52,9 +51,6 @@ class ProductsController < ApplicationController
     @products = @products.where(color: @color) unless @color.empty?
     @products = @products.where(brand: @brand) unless @brand.empty?
     authorize @products
-=======
-    @products = Product.where(category: params[:category])
->>>>>>> Stashed changes
   end
 
 
