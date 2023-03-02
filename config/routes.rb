@@ -10,9 +10,21 @@ Rails.application.routes.draw do
     resources :bookings , only: [:new , :create]
   end
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   resources :products, only: [:index,:destroy] do
     collection do
       get "/category/:category(/:size)(/:color)(/:brand)", to: 'products#filter', as: 'filter'
+=======
+  resources :products, only: [:index] do
+    collection do
+      get "/category/:category/filters", to: 'products#filter', as: 'filter'
+>>>>>>> Stashed changes
+=======
+  resources :products, only: [:index] do
+    collection do
+      get "/category/:category/filters", to: 'products#filter', as: 'filter'
+>>>>>>> Stashed changes
     end
   end
 
