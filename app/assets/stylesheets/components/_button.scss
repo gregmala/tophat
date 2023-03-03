@@ -1,0 +1,18 @@
+.accept-decline {
+  color: white;
+  transition: 0.3s;
+  padding: 6px;
+  background-color: black;
+  border: 0px;
+
+    &:hover {
+
+      color: white;
+      background: linear-gradient(to right, #FFA210 0%, #FF4E0E 100%);
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    a {
+      color: black;
+    }
+}
