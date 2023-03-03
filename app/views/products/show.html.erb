@@ -1,10 +1,14 @@
-  <%= link_to "Back",  filter_products_path(@product.category) , class: "back-btn" %>
-  <div class="product-details">
+<%= link_to "Back",  filter_products_path(@product.category) , class: "back-btn" %>
+<div class="product-details">
+  <div class="image">
+    <%= cl_image_tag @product.photo.key %>
+  </div>
+  <div class="details">
     <h2 class="brand"><%= @product.brand %></h2>
-    <h2><div class="product-color-circle" style="background-color: <%= @product.color %>"></div> <%= @product.apparel_type %></h2>
+    <h3><div class="product-color-circle" style="background-color: <%= @product.color %>"></div> <%= @product.apparel_type %></h3>
     <h3 class="description"><%= @product.description %></h3>
     <p class="size"><%= @product.size  %></p>
-    <p class="price">$<%= @product.price_per_cycle %></p>
+    <p class="priceshow">$<%= @product.price_per_cycle %></p>
     <p><%= link_to "View booking details", new_product_booking_path(@product), class: "add-btn" %></p>
 
     <% if current_user.id == @product.owner_id%>
@@ -15,9 +19,6 @@
     %></p>
     <% end %>
   </div>
-
-</div>
-
 </div>
 
 
@@ -28,14 +29,33 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
+
+</div>
+
 <style>
 .product-details {
-  text-align: right;
+  display: flex;
+  align-items: center;
   padding: 100px;
 }
 
+.image {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.details {
+  flex: 2;
+  text-align: left;
+}
+
 .brand {
-  font-size: 28px;
+  font-size: 38px;
   font-weight: bold;
 }
 
@@ -56,9 +76,11 @@
 .size {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 10px; /* Add margin to separate from the price */
 }
 
-.price {
+
+.priceshow {
   font-size: 22px;
   font-weight: bold;
 }
