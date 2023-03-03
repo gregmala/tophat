@@ -13,6 +13,14 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    authorize @user
+    @marker =
+      {
+        lat: @user.latitude,
+        lng: @user.longitude,
+      }
+    raise
     authorize @product
   end
 
