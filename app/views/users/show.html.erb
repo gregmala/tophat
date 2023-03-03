@@ -30,11 +30,38 @@
   .card-infos h2 {
     font-size: 18px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .card-infos p {
     font-size: 16px;
     margin: 0;
+  }
+
+  .show-title {
+    text-align: center !important;
+  }
+
+  .greeting {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 64px;
+    font-size: 70px;
+    background: -webkit-linear-gradient(#FFE53B, #FF2525);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  .list {
+    margin-bottom:20px;
+    color: white;
+  }
+
+  .status {
+    font-family: 'Roboto Condensed', sans-serif;
   }
 
 </style>
@@ -43,12 +70,12 @@
 
 <div class="container">
   <div class="text-center">
-    <h1> Hi <%= @user.first_name %> <%= @user.last_name.upcase %></h1>
+    <h1 class="greeting"> Hi <%= @user.first_name %> <%= @user.last_name.upcase %>!</h1>
   </div>
   <div class="row">
     <div class="col-md-6">
-      <div class="card mx-auto product-box d-flex flex-column align-items-center">
-        <h2>Your listed products</h2>
+      <div class="card mx-auto product-box d-flex flex-column align-items-center" style="background-color: black">
+        <h2 class="list">Your listed products</h2>
         <% @user.products.each do |product| %>
           <div class="card" style="display: flex; height: 194px;">
             <div class="row">
@@ -57,13 +84,13 @@
               </div>
               <div class="col-md-6">
                 <div class="card-infos">
-                  <h2><%= product.brand %></h2>
-                  <p><%= product.description %></p>
-                  <h2>Price per cycle: <%= product.price_per_cycle %></h2>
-                  <% if product.avaible %>,
-                    <p>Currently out for rent</p>
+                  <h2 class="show-title"><%= product.brand %></h2>
+                  <p><strong>Description: </strong><%= product.description %></p>
+                  <h2>Price: <%= product.price_per_cycle %>$</h2>
+                  <% if product.avaible %>
+                    <p><strong>Status: </strong>Currently unavailable</p>
                   <% else %>
-                    <p>Available for rent</p>
+                    <p><strong>Status: </strong>Available for rent</p>
                   <% end %>
                 </div>
               </div>
@@ -77,17 +104,17 @@
 
 
    <div class="col-md-6">
-      <div class="box mx-auto booking-box d-flex flex-column align-items-center">
-        <h2>Your Bookings</h2>
+      <div class="box mx-auto booking-box d-flex flex-column align-items-center" style="background-color: black">
+        <h2 class="list">Your Bookings</h2>
         <% @user.bookings.each do |booking| %>
           <div class="card" style="height: 194px;">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6 sticky">
                 <div class="card-infos">
-                  <h3><%= booking.status %></h3>
+                  <h3 class="status"><%= booking.status %></h3>
                   <h2><%= booking.product.brand %></h2>
-                  <p><%= booking.product.description %></p>
-                  <h2>Price per cycle: <%= booking.product.price_per_cycle %></h2>
+                  <p><strong>Description: </strong><%= booking.product.description %></p>
+                  <h2><strong>Price:</strong> <%= booking.product.price_per_cycle %>$</h2>
                 </div>
               </div>
               <div class="col-md-6">
