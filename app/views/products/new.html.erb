@@ -1,27 +1,17 @@
-<form action="/submit" method="post" enctype="multipart/form-data">
-		<label for="brand">Brand:</label>
-		<input type="text" id="brand" name="brand">
-		<br><br>
-		<label for="size">Size:</label>
-		<input type="text" id="size" name="size">
-		<br><br>
-		<label for="apparel_type">Apparel Type:</label>
-		<input type="text" id="apparel_type" name="apparel_type">
-		<br><br>
-		<label for="category">Category:</label>
-		<input type="text" id="category" name="category">
-		<br><br>
-		<label for="price_per_cycle">Price Per Cycle:</label>
-		<input type="number" id="price_per_cycle" name="price_per_cycle">
-		<br><br>
-		<label for="color">Color:</label>
-		<input type="text" id="color" name="color">
-		<br><br>
-		<label for="description">Description:</label>
-		<textarea id="description" name="description"></textarea>
-		<br><br>
-		<label for="photo">Photo:</label>
-		<input type="file" id="photo" name="photo">
-		<br><br>
-		<input type="submit" value="Submit">
-	</form>
+<p  class="btn btn-secondary text-decoration-none"><%= link_to "Back to Homepage", products_path %></p>
+
+<div class="container-form">
+  <div class="form-new"><%= simple_form_for @product do |f| %>
+    <%= f.input :brand, label: "Brand" %>
+    <%= f.input :apparel_type, label: "Apparel Type", collection: ["Dress", "Jacket", "Pants", "Jeans", "T-Shirt", "Sweatshirt", "Skirt", "Suit", "Wedding Dress", "Shirt"] %>
+    <%= f.input :category, label: "Category", collection: ["Women", "Men", "Formal", "Kids"] %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :size, label: "Size", collection: ["XS", "S", "M", "L", "XL"] %>
+    <%= f.input :price_per_cycle, label: "Price" %>
+    <%= f.input :photo, as: :file, label: "Upload a photo of the clothes" %>
+    <div class= "text-center">
+    <p class= "btn btn-success text-light"><%= f.button :submit, "Create Product" %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
