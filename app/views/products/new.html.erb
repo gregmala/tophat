@@ -1,19 +1,27 @@
-
-<%= form_with model: @product do |f| %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.label :brand %>
-  <%= f.text_field :brand %>
-  <%= f.label :apparel_type %>
-  <%= f.text_field :apparel_type %>
-  <%= f.label :size %>
-  <%= f.text_field :size %>
-  <%= f.label :color %>
-  <%= f.text_field :color%>
-  <%= f.label :description %>
-  <%= f.text_field :description%>
-  <%= f.label :price_per_day %>
-  <%= f.text_field :price_per_cycle%>
-  <%= f.file_field :photo %>
-  <%= f.submit %>
-<% end %>
+<form action="/submit" method="post" enctype="multipart/form-data">
+		<label for="brand">Brand:</label>
+		<input type="text" id="brand" name="brand">
+		<br><br>
+		<label for="size">Size:</label>
+		<input type="text" id="size" name="size">
+		<br><br>
+		<label for="apparel_type">Apparel Type:</label>
+		<input type="text" id="apparel_type" name="apparel_type">
+		<br><br>
+		<label for="category">Category:</label>
+		<input type="text" id="category" name="category">
+		<br><br>
+		<label for="price_per_cycle">Price Per Cycle:</label>
+		<input type="number" id="price_per_cycle" name="price_per_cycle">
+		<br><br>
+		<label for="color">Color:</label>
+		<input type="text" id="color" name="color">
+		<br><br>
+		<label for="description">Description:</label>
+		<textarea id="description" name="description"></textarea>
+		<br><br>
+		<label for="photo">Photo:</label>
+		<input type="file" id="photo" name="photo">
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
