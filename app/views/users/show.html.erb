@@ -28,7 +28,7 @@
   }
 
   .card-infos h2 {
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 10px;
   }
 
@@ -38,6 +38,7 @@
   }
 
 </style>
+
 
 
 <div class="container">
@@ -59,6 +60,11 @@
                   <h2><%= product.brand %></h2>
                   <p><%= product.description %></p>
                   <h2>Price per cycle: <%= product.price_per_cycle %></h2>
+                  <% if product.avaible %>,
+                    <p>Currently out for rent</p>
+                  <% else %>
+                    <p>Available for rent</p>
+                  <% end %>
                 </div>
               </div>
             </div>
