@@ -40,6 +40,9 @@
     font-size: 16px;
     margin: 0;
   }
+  img {
+  object-fit: contain;
+  }
 
   .show-title {
     text-align: center !important;
@@ -70,7 +73,9 @@
 
 <div class="container">
   <div class="text-center">
+
     <h1 class="greeting"> Hi <%= @user.first_name %> <%= @user.last_name.upcase %>!</h1>
+
   </div>
   <div class="row">
     <div class="col-md-6">
