@@ -1,3 +1,4 @@
+<%= link_to "Back",  filter_products_path(@product.category) , class: "back-btn" %>
 <div class="product-details">
   <div class="image">
     <%= cl_image_tag @product.photo.key %>
@@ -8,7 +9,7 @@
     <h3 class="description"><%= @product.description %></h3>
     <p class="size"><%= @product.size  %></p>
     <p class="priceshow">$<%= @product.price_per_cycle %></p>
-    <p><%= link_to "View booking details", new_product_booking_path(@product), class: "btn btn-dark" %></p>
+    <p><%= link_to "View booking details", new_product_booking_path(@product), class: "add-btn" %></p>
 
     <% if current_user.id == @product.owner_id%>
       <p><%= link_to "Delete",
@@ -20,6 +21,16 @@
   </div>
 </div>
 
+
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+</div>
 
 <style>
 .product-details {

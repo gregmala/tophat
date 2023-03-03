@@ -1,0 +1,39 @@
+.add-btn {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 1s;
+
+  &:hover {
+    color: white;
+    background: linear-gradient(to right, #FFA210 0%, #FF4E0E 100%);
+    transition: 0.3s;
+    text-decoration: none;
+    transition: 1s;
+  }
+}
+
+
+.back-btn {
+
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 1s;
+  margin-left: 15px;
+  margin-top: 5px;
+
+
+
+  &:hover {
+    color: white;
+    background: linear-gradient(to right, #FFA210 0%, #FF4E0E 100%);
+    transition: 0.3s;
+    text-decoration: none;
+    transition: 1s;
+  }
+
+
+}
