@@ -1,11 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :edit, :destroy ]
 
-
   def index
     @products = policy_scope(Product)
     @unique_categories = Product.distinct.pluck(:category)
-
   end
 
   def show
