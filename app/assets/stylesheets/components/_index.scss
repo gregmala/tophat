@@ -6,7 +6,7 @@
 @import "button";
 
 
-.banner{
+.banner {
   background-image: asset-url("https://res.cloudinary.com/dzb3rykjc/image/upload/v1677789341/TOPHAT/banner-image_l4heqp.jpg");
   height: 80vh;
   background-size: cover;
@@ -67,27 +67,35 @@ h2 {
 .card-product {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 150px;
+  margin: 0 auto;
+  width: 200px;
+  height: 300px;
+  
 }
 
-.card-product > img {
+.card-product img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  margin-top: 18px;
+
 }
+
 
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin: 3px;
+  text-align: center !important;
+  margin-bottom: 7px;
 }
 
 .card-product p {
   font-size: 12px;
   opacity: .7;
   // margin: 0;
-  text-align: right;
+  text-align: center !important;
 
 }
 
@@ -101,24 +109,18 @@ h2 {
 }
 
 
+
+
 // .carousel-cards {
 //   display: flex;
 //   justify-content: space-around;
 //   margin: 0 auto;
 // }
 
-.price{
-  display: flex;
-  justify-content: flex-end;
+.card-product-pricing {
+  text-align: center;
 }
 
 .card-body {
-  height: 100px;
-  width: 200px;
-}
-
-.minicard{
-  width: 20vw;
-  height: 20vh;
-
+  display: flex;
 }
