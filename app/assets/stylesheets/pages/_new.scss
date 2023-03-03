@@ -9,6 +9,20 @@
 .form-new{
   border: 5px solid black;
   padding: 15px 10px;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-create {
+  background-color: black;
+  color: white;
+  padding: 8px;
+  transition: 0.3s;
+
+  &:hover {
+    color: white;
+    background: linear-gradient(to right, #FFA210 0%, #FF4E0E 100%);
+    transition: 0.3s;
+    text-decoration: none;
+  }
 
 }

@@ -3,6 +3,12 @@ class ProductsController < ApplicationController
 
   def index
     @products = policy_scope(Product)
+    @products_with_photos = []
+    @products.each do |product|
+      if product.photo.key.present?
+        @products_with_photos << product
+      end
+    end
     @unique_categories = Product.distinct.pluck(:category)
   end
 
