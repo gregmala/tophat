@@ -48,15 +48,18 @@
     <% @products.each do |product| %>
       <div class="card-whole">
         <div class="product-image">
+          <% if product.nil? || product.photo.nil? || product.photo.url.nil? %>
+            <img src="/assets/images/balenciaga.jpeg">
+          <% else %>
+            <img src="<%= product.photo.url %>" style="width: inherit;">
+          <% end %>
         </div>
           <div class="product-info">
               <p class="description"><%= link_to product.description, product_path(product) %></p>
               <p class="brand"><%=link_to product.brand ,product_path(product)%></p>
               <p class="price-descr"><%= product.price_per_cycle %>$<p>
           </div>
-
       </div>
-
     <% end %>
   </div>
 </div>
