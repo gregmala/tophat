@@ -112,6 +112,8 @@ h2 {
   margin-top:-18px;
   border-right: 6px solid black;
   margin-right: 35px;
+  margin-top: -64px;
+  margin-left: auto;
 }
 
 #size {
@@ -159,7 +161,7 @@ h2 {
     text-align: center;
   }
 
-  .price {
+  .price-descr {
     text-align: center;
   }
 
@@ -179,4 +181,14 @@ body {
 
 .border-black {
   border-bottom: 6px solid black;
+}
+
+.brand a {
+  text-decoration: none;
+  color:black;
+}
+
+.description a {
+  text-decoration: none;
+  color:black;
 }

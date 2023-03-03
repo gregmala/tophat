@@ -51,9 +51,9 @@
         <div class="product-image">
         </div>
           <div class="product-info">
-              <p class="description"><%= product.description %></p>
-              <p class="brand"><%= product.brand %></p>
-              <p class="price"><%= product.price_per_cycle %>$<p>
+              <p class="description"><%= link_to product.description, product_path(product) %></p>
+              <p class="brand"><%=link_to product.brand ,product_path(product)%></p>
+              <p class="price-descr"><%= product.price_per_cycle %>$<p>
           </div>
 
       </div>
