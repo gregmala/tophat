@@ -1,19 +1,32 @@
-<div class="product-details">
-  <h2 class="brand"><%= @product.brand %></h2>
-  <h2><div class="product-color-circle" style="background-color: <%= @product.color %>"></div> <%= @product.apparel_type %></h2>
-  <h3 class="description"><%= @product.description %></h3>
-  <p class="size"><%= @product.size  %></p>
-  <p class="price">$<%= @product.price_per_cycle %></p>
-  <p><%= link_to "View booking details", new_product_booking_path(@product), class: "btn btn-dark" %></p>
+  <%= link_to "Back",  filter_products_path(@product.category) , class: "back-btn" %>
+  <div class="product-details">
+    <h2 class="brand"><%= @product.brand %></h2>
+    <h2><div class="product-color-circle" style="background-color: <%= @product.color %>"></div> <%= @product.apparel_type %></h2>
+    <h3 class="description"><%= @product.description %></h3>
+    <p class="size"><%= @product.size  %></p>
+    <p class="price">$<%= @product.price_per_cycle %></p>
+    <p><%= link_to "View booking details", new_product_booking_path(@product), class: "add-btn" %></p>
 
-  <% if current_user.id == @product.owner_id%>
-    <p><%= link_to "Delete",
-    product_path(@product),
-    class: "btn btn-danger",
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-  %></p>
-  <% end %>
+    <% if current_user.id == @product.owner_id%>
+      <p><%= link_to "Delete",
+      product_path(@product),
+      class: "btn btn-danger",
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %></p>
+    <% end %>
+  </div>
+
 </div>
+
+</div>
+
+
+
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <style>
 .product-details {
