@@ -8,7 +8,7 @@ class Product < ApplicationRecord
     is_valid = true
     if product.bookings.present?
       bookings = Booking.where(product_id: product.id)
-      bookings.reject do |booking|
+      bookings.reject! do |booking|
         booking.date.nil? || booking.end_date < Date.today || booking.date > Date.today
       end
       is_valid = bookings.length < 1
